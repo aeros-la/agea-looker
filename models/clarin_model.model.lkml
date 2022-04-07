@@ -16,8 +16,8 @@ explore: clarin_test {hidden:yes}
 
 explore: clarin_test_last14days_view {}
 
-explore: clarin_test_concurrency_view {}
+explore: clarin_test_concurrency_view {hidden:yes}
 
-explore: clarin_test_todaydata_view {hidden:yes}
+explore: clarin_test_todaydata_view {}
 
 explore: clarin_test_7daysagodata_view {}
