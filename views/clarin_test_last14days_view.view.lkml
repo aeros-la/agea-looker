@@ -168,7 +168,8 @@ view: clarin_test_last14days_view {
       week,
       month,
       quarter,
-      year
+      year,
+      minute5
     ]
     datatype: datetime
     sql: ${TABLE}.timestamp ;;
@@ -253,4 +254,10 @@ view: clarin_test_last14days_view {
     type: count_distinct
     sql: ${uid} ;;
   }
+
+  measure: unique_pages {
+    type: count_distinct
+    sql: ${dl} ;;
+  }
+
 }
