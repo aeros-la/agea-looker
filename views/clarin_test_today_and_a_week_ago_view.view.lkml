@@ -1,5 +1,5 @@
-view: clarin_test_today_and_aweekago_data {
-  sql_table_name: `agea-mirta-sbx.agea_pixel_bi.clarin_test_today_and_aweekago_data`
+view: clarin_test_today_and_a_week_ago_view {
+  sql_table_name: `agea-mirta-sbx.agea_pixel_bi.clarin_test_today_and_a_week_ago_view`
     ;;
   drill_fields: [id]
 
@@ -165,6 +165,7 @@ view: clarin_test_today_and_aweekago_data {
       raw,
       time,
       date,
+      time_of_day,
       minute5,
       week,
       month,
@@ -173,6 +174,13 @@ view: clarin_test_today_and_aweekago_data {
     ]
     datatype: datetime
     sql: ${TABLE}.timestamp ;;
+  }
+
+  dimension_group: timestamp_hourandmin {
+    type: time
+    timeframes: [minute5]
+    datatype: datetime
+    sql: ${timestamp_time_of_day} ;;
   }
 
   dimension: tipo_lector {
@@ -249,4 +257,8 @@ view: clarin_test_today_and_aweekago_data {
     type: count
     drill_fields: [id, name]
   }
+
+
+
+
 }
