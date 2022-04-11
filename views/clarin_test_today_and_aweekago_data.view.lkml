@@ -165,6 +165,7 @@ view: clarin_test_today_and_aweekago_data {
       raw,
       time,
       date,
+      minute5,
       week,
       month,
       quarter,

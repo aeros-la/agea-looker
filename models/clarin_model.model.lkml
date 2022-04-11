@@ -21,3 +21,5 @@ explore: clarin_test_concurrency_view {hidden:yes}
 explore: clarin_test_todaydata_view {}
 
 explore: clarin_test_7daysagodata_view {}
+
+explore: clarin_test_today_and_aweekago_data {}
