@@ -16,7 +16,7 @@ view: clarin_test_concurrency_view {
 
   dimension: autorefresh {
     type: string
-    sql: ${TABLE}.autorefresh ;;
+    sql: ${TABLE}.autorefresh- ;;
   }
 
   dimension: bn {
