@@ -81,7 +81,7 @@ view: clarin_test_concurrency_view {
 
   dimension: edad {
     type: number
-    sql: ${TABLE}.edad;;
+    sql: CAST (${TABLE}.edad as int64);;
   }
 
   dimension: ev {
