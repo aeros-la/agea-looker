@@ -176,11 +176,11 @@ view: clarin_test_today_and_a_week_ago_view {
     sql: ${TABLE}.timestamp ;;
   }
 
-  dimension_group: timestamp_hourandmin {
+  dimension_group: tiempo {
     type: time
     timeframes: [minute5]
     datatype: datetime
-    sql: ${timestamp_time_of_day} ;;
+    sql: ${TABLE}.tiempo ;;
   }
 
   dimension: tipo_lector {
