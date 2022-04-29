@@ -80,8 +80,8 @@ view: clarin_test_concurrency_view {
   }
 
   dimension: edad {
-    type: string
-    sql: ${TABLE}.edad ;;
+    type: number
+    sql: ${TABLE}.edad;;
   }
 
   dimension: ev {
@@ -247,5 +247,15 @@ view: clarin_test_concurrency_view {
   measure: count {
     type: count
     drill_fields: [id, name]
+  }
+
+  measure: unique_users {
+    type: count_distinct
+    sql: ${uid} ;;
+  }
+
+  measure: unique_pages {
+    type: count_distinct
+    sql: ${dl} ;;
   }
 }
