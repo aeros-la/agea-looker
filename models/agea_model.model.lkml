@@ -25,3 +25,5 @@ explore: section_from_concurrency {}
 explore: origen_from_concurrency {}
 
 explore: origen_red_social_from_concurrency {}
+
+explore: sexo_from_concurrency {}

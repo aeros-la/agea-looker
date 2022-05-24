@@ -1,5 +1,5 @@
-view: ole_test {
-  sql_table_name: `agea_pixel.ole_test`
+view: ole_test_concurrency_view {
+  sql_table_name: `agea-mirta-sbx.agea_pixel_bi.ole_test_concurrency_view`
     ;;
   drill_fields: [id]
 
@@ -129,6 +129,16 @@ view: ole_test {
     sql: ${TABLE}.nsSite ;;
   }
 
+  dimension: origen {
+    type: string
+    sql: ${TABLE}.origen ;;
+  }
+
+  dimension: origen_red_social {
+    type: string
+    sql: ${TABLE}.origen_red_social ;;
+  }
+
   dimension: pase_id {
     type: string
     sql: ${TABLE}.paseId ;;
@@ -147,6 +157,11 @@ view: ole_test {
   dimension: sdc_application_id {
     type: string
     sql: ${TABLE}.sdcApplicationId ;;
+  }
+
+  dimension: seccion {
+    type: string
+    sql: ${TABLE}.seccion ;;
   }
 
   dimension: sexo {
