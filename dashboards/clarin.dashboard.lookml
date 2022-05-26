@@ -1,5 +1,5 @@
 - dashboard: clarin_dashboard
-  title: clarin_dashboard
+  title: clarin_dashboard_loolML
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
