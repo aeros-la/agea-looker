@@ -12,18 +12,13 @@ persist_with: dashboard_clarin_default_datagroup
 
 explore: clarin_test_concurrency_view {}
 
-explore: clarin_test_todaydata_view {}
-
-explore: clarin_test_7daysagodata_view {}
-
 explore: clarin_test_today_and_a_week_ago_view {}
 
-explore: fiveminutesgrouping_todayandawa {}
+explore: clarin_test_5mingroup_todayandawa {}
 
-explore: section_from_concurrency {}
 
-explore: origen_from_concurrency {}
+explore: ole_test_concurrency_view {}
 
-explore: origen_red_social_from_concurrency {}
+explore: ole_test_today_and_a_week_ago_view {}
 
-explore: sexo_from_concurrency {}
+explore: ole_test_5mingroup_todayandawa {}

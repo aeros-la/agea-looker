@@ -1,4 +1,4 @@
-view: fiveminutesgrouping_todayandawa {
+view: clarin_test_5mingroup_todayandawa {
   derived_table: {
     sql:SELECT dia,intervalo,user_id  from (
 
