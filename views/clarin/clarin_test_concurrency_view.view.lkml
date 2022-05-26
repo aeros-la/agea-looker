@@ -244,6 +244,22 @@ view: clarin_test_concurrency_view {
     sql: ${TABLE}.vp ;;
   }
 
+  dimension: origen {
+    type: string
+    sql: ${TABLE}.origen ;;
+  }
+
+  dimension: origen_red_social {
+    type: string
+    sql: ${TABLE}.origen_red_social ;;
+  }
+
+  dimension: seccion {
+    type: string
+    sql: ${TABLE}.seccion ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: [id, name]
