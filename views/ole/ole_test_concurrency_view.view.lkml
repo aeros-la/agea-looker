@@ -263,4 +263,19 @@ view: ole_test_concurrency_view {
     type: count
     drill_fields: [id, name]
   }
+
+  measure: unique_users {
+    type: count_distinct
+    sql: ${uid} ;;
+  }
+
+  measure: unique_pages {
+    type: count_distinct
+    sql: ${dl} ;;
+  }
+
+  measure: unique_pases {
+    type: count_distinct
+    sql: ${pase_id} ;;
+  }
 }
