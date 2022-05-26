@@ -258,4 +258,9 @@ view: clarin_test_concurrency_view {
     type: count_distinct
     sql: ${dl} ;;
   }
+
+  measure: unique_pases {
+    type: count_distinct
+    sql: ${pase_id} ;;
+  }
 }
