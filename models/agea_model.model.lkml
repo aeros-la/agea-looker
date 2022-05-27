@@ -19,7 +19,7 @@ explore: clarin_test_5mingroup_todayandawa {}
 explore: clarin_concurrency_test {
   join: clarin_test_5mingroup_todayandawa {
     type: left_outer
-    sql_on: ${clarin_concurrency_test.uid}] = ${clarin_test_5mingroup_todayandawa.user_id} ;;
+    sql_on: ${user_id} = ${clarin_test_5mingroup_todayandawa.user_id} ;;
     relationship: one_to_many
   }
 }
