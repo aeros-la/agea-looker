@@ -16,7 +16,13 @@ explore: clarin_test_today_and_a_week_ago_view {}
 
 explore: clarin_test_5mingroup_todayandawa {}
 
-explore: clarin_concurrency_test {}
+explore: clarin_concurrency_test {
+  join: clarin_test_5mingroup_todayandawa {
+    type: left_outer
+    sql_on: ${clarin_concurrency_test.uid}] = ${clarin_test_5mingroup_todayandawa.user_id} ;;
+    relationship: one_to_many
+  }
+}
 
 
 explore: ole_test_concurrency_view {}
