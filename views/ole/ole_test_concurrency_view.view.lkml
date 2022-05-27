@@ -165,8 +165,17 @@ view: ole_test_concurrency_view {
   }
 
   dimension: sexo {
-    type: string
-    sql: ${TABLE}.sexo ;;
+    case: {
+      when: {
+        sql: ${TABLE}.sexo = "m" OR ${TABLE}.sexo = "M" OR ${TABLE}.sexo = "MASCULINO";;
+        label: "Masculino"
+      }
+      when: {
+        sql: ${TABLE}.sexo = "f" OR ${TABLE}.sexo = "F" OR ${TABLE}.sexo = "FEMENINO";;
+        label: "Femenino"
+      }
+      else: "unknown"
+    }
   }
 
   dimension: sr {
