@@ -187,7 +187,7 @@ view: clarin_concurrency_test {
     type: string
     sql:
       (
-        SELECT dia,intervalo,user_id  from (
+        SELECT intervalo from (
 
   SELECT EXTRACT(DATE from t1.timestamp) as dia, t1.uid as user_id,
     (FORMAT_DATETIME('%H:%M', TIMESTAMP_TRUNC(DATETIME_SUB(t1.timestamp , INTERVAL MOD(EXTRACT(MINUTE FROM t1.timestamp ), 5) MINUTE), MINUTE))) AS intervalo,
