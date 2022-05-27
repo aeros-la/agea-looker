@@ -18,9 +18,9 @@ explore: clarin_test_5mingroup_todayandawa {}
 
 explore: clarin_concurrency_test {
   join: clarin_test_5mingroup_todayandawa {
-    type: left_outer
+    type: full_outer
     sql_on: ${user_id} = ${clarin_test_5mingroup_todayandawa.user_id} ;;
-    relationship: one_to_many
+    relationship: many_to_many
   }
 }
 

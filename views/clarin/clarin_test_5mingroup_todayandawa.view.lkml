@@ -27,6 +27,7 @@ SELECT EXTRACT(DATE from t2.timestamp) as dia,t2.uid as user_id,
   }
 
   dimension: user_id {
+    primary_key: yes
     type: string
     sql: ${TABLE}.user_id;;
   }
