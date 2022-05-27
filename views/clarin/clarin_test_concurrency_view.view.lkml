@@ -95,8 +95,17 @@ view: clarin_test_concurrency_view {
   }
 
   dimension: md {
-    type: string
-    sql: ${TABLE}.md ;;
+    case: {
+      when: {
+        sql: ${TABLE}.md = 'true';;
+        label: "Mobile"
+      }
+      when: {
+        sql: ${TABLE}.md = 'false' ;;
+        label: "Desktop"
+      }
+      else: "unknown"
+    }
   }
 
   dimension: mes_publicacion {
@@ -277,11 +286,6 @@ view: clarin_test_concurrency_view {
   measure: unique_users {
     type: count_distinct
     sql: ${uid} ;;
-  }
-
-  measure: count_pages {
-    type: count
-    drill_fields: [dl]
   }
 
   measure: unique_pages {
