@@ -279,6 +279,11 @@ view: clarin_test_concurrency_view {
     sql: ${uid} ;;
   }
 
+  measure: count_pages {
+    type: count
+    drill_fields: [dl]
+  }
+
   measure: unique_pages {
     type: count_distinct
     sql: ${dl} ;;
