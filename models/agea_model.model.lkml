@@ -16,6 +16,8 @@ explore: clarin_test_today_and_a_week_ago_view {}
 
 explore: clarin_test_5mingroup_todayandawa {}
 
+explore: clarin_concurrency_test {}
+
 
 explore: ole_test_concurrency_view {}
 
