@@ -45,8 +45,20 @@ view: clarin_concurrency_test {
   }
 
   dimension: data_source {
-    type: string
-    sql: ${TABLE}.dataSource ;;
+    case: {
+      when: {
+        sql: ${TABLE}.dataSource  = "amp";;
+        label: "AMP"
+      }
+      when: {
+        sql: ${TABLE}.dataSource  = "ia";;
+        label: "IA"
+      }
+      when: {
+        sql: ${TABLE}.dataSource  = "-2";;
+        label: "Standard"
+      }
+    }
   }
 
   dimension: de {
@@ -95,8 +107,17 @@ view: clarin_concurrency_test {
   }
 
   dimension: md {
-    type: string
-    sql: ${TABLE}.md ;;
+    case: {
+      when: {
+        sql: ${TABLE}.md = 'true';;
+        label: "Mobile"
+      }
+      when: {
+        sql: ${TABLE}.md = 'false' ;;
+        label: "Desktop"
+      }
+      else: "unknown"
+    }
   }
 
   dimension: mes_publicacion {
@@ -189,8 +210,24 @@ view: clarin_concurrency_test {
   }
 
   dimension: tipo_lector {
-    type: string
-    sql: ${TABLE}.tipoLector ;;
+    case: {
+      when: {
+        sql: ${TABLE}.tipoLector = "loginwall";;
+        label: "loginwall"
+      }
+      when: {
+        sql: ${TABLE}.tipoLector = "paywall";;
+        label: "paywall"
+      }
+      when: {
+        sql: ${TABLE}.tipoLector = "anonimo";;
+        label: "anonimo"
+      }
+      when: {
+        sql: ${TABLE}.tipoLector = "-2";;
+        label: "anonimo"
+      }
+    }
   }
 
   dimension: tipo_pagina {
