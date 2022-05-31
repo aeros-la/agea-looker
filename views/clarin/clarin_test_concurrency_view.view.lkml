@@ -327,7 +327,7 @@ view: clarin_test_concurrency_view {
   }
 
   measure: avg_edad {
-    type: average
+    type: average_distinct
     sql: CAST (${TABLE}.edad as int64);;
   }
 }
