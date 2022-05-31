@@ -30,3 +30,11 @@ explore: ole_test_concurrency_view {}
 explore: ole_test_today_and_a_week_ago_view {}
 
 explore: ole_test_5mingroup_todayandawa {}
+
+explore: ole_concurrency_test {
+  join: ole_test_5mingroup_todayandawa {
+    type: full_outer
+    sql_on: ${user_id} = ${ole_test_5mingroup_todayandawa.user_id} ;;
+    relationship: many_to_many
+  }
+}

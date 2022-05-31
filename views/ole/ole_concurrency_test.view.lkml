@@ -1,6 +1,6 @@
-view: clarin_concurrency_test {
-  sql_table_name: `agea-mirta-sbx.agea_pixel_bi.clarin_test_concurrency_view`
-    ;;
+view: ole_concurrency_test {
+ sql_table_name: `agea-mirta-sbx.agea_pixel_bi.ole_test_concurrency_view`
+  ;;
   drill_fields: [id]
 
   dimension: id {
@@ -16,7 +16,7 @@ view: clarin_concurrency_test {
 
   dimension: autorefresh {
     type: string
-    sql: ${TABLE}.autorefresh- ;;
+    sql: ${TABLE}.autorefresh ;;
   }
 
   dimension: bn {
@@ -91,9 +91,14 @@ view: clarin_concurrency_test {
     sql: ${TABLE}.ed ;;
   }
 
+  dimension: user_id {
+    type: string
+    sql: ${TABLE}.uid ;;
+  }
+
   dimension: edad {
-    type: number
-    sql: CAST (${TABLE}.edad as int64);;
+    type: string
+    sql: ${TABLE}.edad ;;
   }
 
   dimension: ev {
@@ -150,6 +155,16 @@ view: clarin_concurrency_test {
     sql: ${TABLE}.nsSite ;;
   }
 
+  dimension: origen {
+    type: string
+    sql: ${TABLE}.origen ;;
+  }
+
+  dimension: origen_red_social {
+    type: string
+    sql: ${TABLE}.origen_red_social ;;
+  }
+
   dimension: pase_id {
     type: string
     sql: ${TABLE}.paseId ;;
@@ -168,6 +183,11 @@ view: clarin_concurrency_test {
   dimension: sdc_application_id {
     type: string
     sql: ${TABLE}.sdcApplicationId ;;
+  }
+
+  dimension: seccion {
+    type: string
+    sql: ${TABLE}.seccion ;;
   }
 
   dimension: sexo {
@@ -204,11 +224,6 @@ view: clarin_concurrency_test {
     sql: ${TABLE}.timestamp ;;
   }
 
-  dimension: user_id {
-    type: string
-    sql: ${TABLE}.uid ;;
-  }
-
   dimension: tipo_lector {
     case: {
       when: {
@@ -218,6 +233,10 @@ view: clarin_concurrency_test {
       when: {
         sql: ${TABLE}.tipoLector = "paywall";;
         label: "paywall"
+      }
+      when: {
+        sql: ${TABLE}.tipoLector = "pendiente";;
+        label: "pendiente"
       }
       when: {
         sql: ${TABLE}.tipoLector = "anonimo";;
@@ -295,26 +314,6 @@ view: clarin_concurrency_test {
     sql: ${TABLE}.vp ;;
   }
 
-  dimension: origen {
-    type: string
-    sql: ${TABLE}.origen ;;
-  }
-
-  dimension: origen_red_social {
-    type: string
-    sql: ${TABLE}.origen_red_social ;;
-  }
-
-  dimension: seccion {
-    type: string
-    sql: ${TABLE}.seccion ;;
-  }
-
-  dimension: distinct_user {
-    type: string
-    sql: ${TABLE}.uid. ;;
-  }
-
   measure: count {
     type: count
     drill_fields: [id, name]
@@ -333,11 +332,5 @@ view: clarin_concurrency_test {
   measure: unique_pases {
     type: count_distinct
     sql: ${pase_id} ;;
-  }
-
-  measure: avg_edad {
-    type: average_distinct
-    sql_distinct_key: ${user_id} ;;
-    sql: CAST (${TABLE}.edad as int64);;
   }
 }

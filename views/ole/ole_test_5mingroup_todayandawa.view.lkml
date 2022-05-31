@@ -28,6 +28,7 @@ view: ole_test_5mingroup_todayandawa {
     }
 
     dimension: user_id {
+      primary_key: yes
       type: string
       sql: ${TABLE}.user_id;;
     }
