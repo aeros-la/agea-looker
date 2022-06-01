@@ -1,4 +1,5 @@
 view: ole_test_concurrency_view {
+
   sql_table_name: `agea-mirta-sbx.agea_pixel_bi.ole_test_concurrency_view`
     ;;
   drill_fields: [id]
@@ -150,7 +151,7 @@ view: ole_test_concurrency_view {
     sql: ${TABLE}.nsSite ;;
   }
 
-  dimension: origen {
+  dimension: origen_ole {
     type: string
     sql: ${TABLE}.origen ;;
   }
