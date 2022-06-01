@@ -325,11 +325,6 @@ view: clarin_concurrency_test {
     sql: ${uid} ;;
   }
 
-  measure: unique_pages {
-    type: count_distinct
-    sql: ${dl} ;;
-  }
-
   measure: unique_pases {
     type: count_distinct
     sql: ${pase_id} ;;

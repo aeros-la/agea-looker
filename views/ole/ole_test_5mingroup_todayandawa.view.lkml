@@ -1,9 +1,9 @@
 view: ole_test_5mingroup_todayandawa {
 
     derived_table: {
-      sql:SELECT dia,intervalo,user_id  from (
+      sql:SELECT dia,intervalo,user_id, origen_interval from (
 
-          SELECT EXTRACT(DATE from t1.timestamp) as dia, t1.uid as user_id,
+          SELECT EXTRACT(DATE from t1.timestamp) as dia, t1.uid as user_id, origen as origen_interval,
             (FORMAT_DATETIME('%H:%M', TIMESTAMP_TRUNC(DATETIME_SUB(t1.timestamp , INTERVAL MOD(EXTRACT(MINUTE FROM t1.timestamp ), 5) MINUTE), MINUTE))) AS intervalo,
           FROM `agea-mirta-sbx.agea_pixel_bi.ole_test_todaydata_view`
              AS t1
@@ -11,7 +11,7 @@ view: ole_test_5mingroup_todayandawa {
 
         union all
 
-        SELECT EXTRACT(DATE from t2.timestamp) as dia,t2.uid as user_id,
+        SELECT EXTRACT(DATE from t2.timestamp) as dia,t2.uid as user_id, NULL as origen_interval,
         (FORMAT_DATETIME('%H:%M', TIMESTAMP_TRUNC(DATETIME_SUB(t2.timestamp , INTERVAL MOD(EXTRACT(MINUTE FROM t2.timestamp ), 5) MINUTE), MINUTE))) AS intervalo,
         FROM `agea-mirta-sbx.agea_pixel_bi.ole_test_7daysagodata_view` as t2
         )  ;;
@@ -32,6 +32,11 @@ view: ole_test_5mingroup_todayandawa {
       type: string
       sql: ${TABLE}.intervalo ;;
     }
+
+  dimension: origen_interval {
+    type: string
+    sql: ${TABLE}.origen_interval ;;
+  }
 
   measure: count {
     type: count
