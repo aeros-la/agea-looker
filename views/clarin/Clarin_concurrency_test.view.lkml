@@ -335,9 +335,19 @@ view: clarin_concurrency_test {
     sql: ${pase_id} ;;
   }
 
+#  measure: avg_edad {
+#    type: average_distinct
+#    sql_distinct_key: ${user_id} ;;
+#    sql: CAST (${TABLE}.edad as int64);;
+#  }
+
   measure: avg_edad {
-    type: average_distinct
-    sql_distinct_key: ${user_id} ;;
-    sql: CAST (${TABLE}.edad as int64);;
+    type: number
+    sql: (
+          SELECT
+          avg((CAST (edad as int64))) as avg
+          FROM (select distinct uid, edad from `agea-mirta-sbx.agea_pixel_bi.clarin_test_concurrency_view` as t
+          WHERE (CAST (edad as int64)) <> -2)
+          );;
   }
 }
