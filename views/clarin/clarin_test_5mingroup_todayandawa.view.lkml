@@ -1,8 +1,8 @@
 view: clarin_test_5mingroup_todayandawa {
   derived_table: {
-    sql:SELECT unique_key, ev, dia,intervalo,user_id, origen_interval  from (
+    sql:SELECT unique_key, ev, origen_red_social, dia,intervalo,user_id, origen_interval  from (
 
-  SELECT unique_key, ev, EXTRACT(DATE from t1.timestamp) as dia, t1.uid as user_id, origen as origen_interval,
+  SELECT unique_key, ev, origen_red_social, EXTRACT(DATE from t1.timestamp) as dia, t1.uid as user_id, origen as origen_interval,
     (FORMAT_DATETIME('%H:%M', TIMESTAMP_TRUNC(DATETIME_SUB(t1.timestamp , INTERVAL MOD(EXTRACT(MINUTE FROM t1.timestamp ), 5) MINUTE), MINUTE))) AS intervalo,
   FROM `agea-mirta-sbx.agea_pixel_bi.clarin_test_todaydata_view`
      AS t1
@@ -10,7 +10,7 @@ view: clarin_test_5mingroup_todayandawa {
 
 union all
 
-SELECT unique_key, ev, EXTRACT(DATE from t2.timestamp) as dia,t2.uid as user_id, NULL as origen_interval,
+SELECT unique_key, ev, NULL as origen_red_social, EXTRACT(DATE from t2.timestamp) as dia,t2.uid as user_id, NULL as origen_interval,
     (FORMAT_DATETIME('%H:%M', TIMESTAMP_TRUNC(DATETIME_SUB(t2.timestamp , INTERVAL MOD(EXTRACT(MINUTE FROM t2.timestamp ), 5) MINUTE), MINUTE))) AS intervalo,
     FROM `agea-mirta-sbx.agea_pixel_bi.clarin_test_7daysagodata_view` as t2
 )  ;;
@@ -25,6 +25,11 @@ SELECT unique_key, ev, EXTRACT(DATE from t2.timestamp) as dia,t2.uid as user_id,
   dimension: ev {
     type: string
     sql: ${TABLE}.ev ;;
+  }
+
+  dimension: origen_red_social {
+    type: string
+    sql: ${TABLE}.origen_red_social ;;
   }
 
   dimension: user_id {
