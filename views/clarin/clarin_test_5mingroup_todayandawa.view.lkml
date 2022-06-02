@@ -138,7 +138,7 @@ SELECT unique_key, ev, NULL as origen_red_social, EXTRACT(DATE from t2.timestamp
   measure: current_datetime_count_pages {
     type: number
     sql: (
-          SELECT COUNT(clarin_test_5mingroup_todayandawa_page) AS count_distinct_pages
+          SELECT COUNT(clarin_test_5mingroup_todayandawa_page) AS count_pages
           FROM (WITH clarin_test_5mingroup_todayandawa AS (SELECT dia,intervalo,user_id, page  from (
 
             SELECT EXTRACT(DATE from t1.timestamp) as dia, t1.uid as user_id,t1.dl as page,
