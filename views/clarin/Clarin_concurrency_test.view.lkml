@@ -3,8 +3,13 @@ view: clarin_concurrency_test {
     ;;
   drill_fields: [id]
 
-  dimension: id {
+  dimension: unique_key {
     primary_key: yes
+    type: string
+    sql: ${TABLE}.unique_key ;;
+  }
+
+  dimension: id {
     type: string
     sql: ${TABLE}.id ;;
   }

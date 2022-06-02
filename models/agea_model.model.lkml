@@ -19,7 +19,7 @@ explore: clarin_test_5mingroup_todayandawa {}
 explore: clarin_concurrency_test {
   join: clarin_test_5mingroup_todayandawa {
     type: full_outer
-    sql_on: ${user_id} = ${clarin_test_5mingroup_todayandawa.user_id} ;;
+    sql_on: ${unique_key} = ${clarin_test_5mingroup_todayandawa.unique_key} ;;
     relationship: many_to_many
   }
 }
@@ -34,7 +34,7 @@ explore: ole_test_5mingroup_todayandawa {}
 explore: ole_concurrency_test {
   join: ole_test_5mingroup_todayandawa {
     type: full_outer
-    sql_on: ${user_id} = ${ole_test_5mingroup_todayandawa.user_id} ;;
+    sql_on: ${unique_key} = ${ole_test_5mingroup_todayandawa.unique_key} ;;
     relationship: many_to_many
   }
 }

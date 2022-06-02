@@ -3,8 +3,13 @@ view: ole_concurrency_test {
   ;;
   drill_fields: [id]
 
-  dimension: id {
+  dimension: unique_key {
     primary_key: yes
+    type: string
+    sql: ${TABLE}.unique_key ;;
+  }
+
+  dimension: id {
     type: string
     sql: ${TABLE}.id ;;
   }
@@ -332,5 +337,15 @@ view: ole_concurrency_test {
   measure: unique_pases {
     type: count_distinct
     sql: ${pase_id} ;;
+  }
+
+  measure: avg_edad {
+    type: number
+    sql: (
+          SELECT
+          avg((CAST (edad as int64))) as avg
+          FROM (select distinct uid, edad from `agea-mirta-sbx.agea_pixel_bi.ole_test_concurrency_view` as t
+          WHERE (CAST (edad as int64)) <> -2)
+          );;
   }
 }
