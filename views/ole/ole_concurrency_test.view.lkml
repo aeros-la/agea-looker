@@ -102,8 +102,8 @@ view: ole_concurrency_test {
   }
 
   dimension: edad {
-    type: string
-    sql: ${TABLE}.edad ;;
+    type: number
+    sql: CAST (${TABLE}.edad as int64);;
   }
 
   dimension: ev {
