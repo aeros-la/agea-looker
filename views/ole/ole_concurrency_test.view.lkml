@@ -233,11 +233,11 @@ view: ole_concurrency_test {
     case: {
       when: {
         sql: ${TABLE}.tipoLector = "loginwall";;
-        label: "loginwall"
+        label: "Registrado"
       }
       when: {
         sql: ${TABLE}.tipoLector = "paywall";;
-        label: "paywall"
+        label: "Suscriptor"
       }
       when: {
         sql: ${TABLE}.tipoLector = "pendiente";;
@@ -245,11 +245,11 @@ view: ole_concurrency_test {
       }
       when: {
         sql: ${TABLE}.tipoLector = "anonimo";;
-        label: "anonimo"
+        label: "Anónimo"
       }
       when: {
         sql: ${TABLE}.tipoLector = "-2";;
-        label: "anonimo"
+        label: "Anónimo"
       }
     }
   }
