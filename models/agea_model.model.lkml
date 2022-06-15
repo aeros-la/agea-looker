@@ -16,6 +16,10 @@ explore: clarin_test_today_and_a_week_ago_view {}
 
 explore: clarin_test_5mingroup_todayandawa {}
 
+explore: clarin_test_todaydata_view {}
+
+explore: clarin_test_yesterdaydata_view {}
+
 explore: clarin_concurrency_test {
   join: clarin_test_5mingroup_todayandawa {
     type: full_outer
@@ -30,6 +34,10 @@ explore: ole_test_concurrency_view {}
 explore: ole_test_today_and_a_week_ago_view {}
 
 explore: ole_test_5mingroup_todayandawa {}
+
+explore: ole_test_todaydata_view {}
+
+explore: ole_test_yesterdaydata_view {}
 
 explore: ole_concurrency_test {
   join: ole_test_5mingroup_todayandawa {
